@@ -6,36 +6,14 @@
 <body>
 
   <div id="map_decoy"></div>
-  <ul id="list"></ul>
-  <ul id="beer_list"></ul>
+  <ul id="locations"></ul>
+  <div id="location">
+  <ul id="beers"></ul>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=true"></script>  
-  <script>
-
-    (function() {
-      
-      navigator.geolocation.getCurrentPosition(function(position) {
-        var loc = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-        var places = new google.maps.places.PlacesService(document.getElementById('map_decoy'));
-        var request = {
-          location: loc,
-          radius: '10000',
-          types: [ 'bar', 'restaurant' ]
-        };
-        places.search(request, function(data) {
-          var list = document.getElementById('list');
-          $(data).each(function(i, p) {
-            var $li = $("<li><img src='" + p.icon + "' /><p>" + p.name + "</p></li>");
-            $li.click(function(e) {
-              alert('Checking out ' + p.name + '\'s beer list');
-            })
-            .appendTo(list);
-          });
-        });
-      });
-      
-    })();
-  </script>
+  <script src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=true"></script>  
+  <script src="js/jquery.js"></script>      
+  <script src="js/underscore.js"></script>      
+  <script src="js/marker.js"></script>    
+  <script src="js/ot.js"></script>
 </body>
 </html>
