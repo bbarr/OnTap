@@ -36,6 +36,7 @@
   locations = {
     
     nearby: [],
+    existing: [],
     $list: $('#locations'),
     $location: $('#location'),
     
@@ -70,7 +71,14 @@
     },
     
     show: function(location) {
-      console.log(location)
+      location.persisted(function(result) {
+        if (result) {
+          console.log(location, result, 'persisted!');
+        }
+        else {
+          console.log(location, result, 'not persisted yet')
+        }
+      });
     },
     
     render: function() {
@@ -102,8 +110,10 @@
   
   Location.prototype = {
     
-    detect: function() {
-      
+    persisted: function(cb) {
+      var self = this,
+          result = _(locations.existing).detect(function(l) { return l.id === self.id });
+      cb(result);
     }
   };
 
