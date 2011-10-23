@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  border-bottom: 1px solid #aaa;
+  padding: 10px;
+  line-height: 30px;
+  list-style: none;
+}
+
+li img {
+  float: left;
+  margin-right: 20px;
+}
+
+li p {
+  padding: 20px 0;
+}
+
+li:hover {
+  cursor: pointer;
+  background: #eee;
+}
