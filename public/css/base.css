@@ -23,3 +23,9 @@ li:hover {
   cursor: pointer;
   background: #eee;
 }
+
+#locations,
+#location,
+#beers {
+  display: none;
+}
